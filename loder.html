@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <title>Document</title>
+    <style>
+      .loader-bg {
+        position: fixed;
+        z-index: 999999;
+        background: #fff;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to bottom left, #79c7c5 40%, #f9fbff 100%);
+        /*z-index: 9999;*/
+      }
+
+      .loader-p {
+        border: 0 solid transparent;
+        border-radius: 50%;
+        width: 190px;
+        height: 190px;
+        text-align: center;
+      }
+
+      .loader-p img {
+        width: 100px;
+        margin: 46px auto;
+      }
+
+      .main-content {
+        display: none; /* Hide main content initially */
+      }
+    </style>
+  </head>
+  <body>
+    <!--loaders start-->
+
+    <div class="loader-bg" id="preloader">
+      <div class="loader-p" id="ctn-preloader">
+        <img
+          src="https://www.pinkpayinfotech.com/skin/front/assets/img/d-agency/logo/logo.png"
+        />
+      </div>
+    </div>
+    <!--loader end-->
+
+    <script>
+      $(window).on("load", function () {
+        // Hide the loader after 2 seconds
+        $("#ctn-preloader").delay(2000).fadeOut("slow");
+        $("#preloader")
+          .delay(2000)
+          .fadeOut("slow", function () {
+            // Show the main content after the loader has disappeared
+            $(".main-content").fadeIn("slow");
+          });
+      });
+    </script>
+  </body>
+</html>
